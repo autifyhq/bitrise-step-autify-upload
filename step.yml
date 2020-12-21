@@ -10,12 +10,12 @@
 title: |-
   Autify Upload
 summary: |
-  TODO
+  Uploads your build to Autify.
 description: |
   TOOD
-website: https://github.com/autifyhq/bitrise-steps-autify-upload/bitrise-step-autify-upload
-source_code_url: https://github.com/autifyhq/bitrise-steps-autify-upload/bitrise-step-autify-upload
-support_url: https://github.com/autifyhq/bitrise-steps-autify-upload/bitrise-step-autify-upload/issues
+website: https://github.com/autifyhq/bitrise-steps-autify-upload
+source_code_url: https://github.com/autifyhq/bitrise-steps-autify-upload
+support_url: https://github.com/autifyhq/bitrise-steps-autify-upload/issues
 host_os_tags:
   - osx-10.10
   - ubuntu-16.04
@@ -29,14 +29,14 @@ host_os_tags:
 # You can find more information about project type tags in the Step Development Guideline:
 # https://github.com/bitrise-io/bitrise/blob/master/_docs/step-development-guideline.md
 #
-# project_type_tags:
-#   - ios
-#   - macos
-#   - android
-#   - xamarin
-#   - react-native
-#   - cordova
-#   - ionic
+project_type_tags:
+  - ios
+  - android
+  - xamarin
+  - react-native
+  - cordova
+  - ionic
+  - flutter
 
 # Type tags are used for categorizing steps, for easier step discovery in Step Libraries.
 # You can find more information about type tags in the Step Development Guideline:
@@ -64,24 +64,30 @@ toolkit:
 
 
 inputs:
-  - example_step_input: Default Value - you can leave this empty if you want to
+  - app_dir_path:
     opts:
-      title: "Example Step Input"
-      summary: Summary. No more than 2-3 sentences.
+      title:
+      summary:
       description: |
         Description of this input.
-
         Can be Markdown formatted text.
-      is_expand: true
       is_required: true
-      value_options: []
+  - upload_token:
+    opts:
+      title: Autify upload token
+      summary:
+      description: |
+        Description of this input.
+        Can be Markdown formatted text.
+      is_required: true
+      is_sensitive: true
+
 
 outputs:
-  - EXAMPLE_STEP_OUTPUT:
+  - AUTIFY_UPLOAD_STEP_RESULT_JSON:
     opts:
-      title: "Example Step Output"
+      title: "Autify Upload Step Result JSON"
       summary: Summary. No more than 2-3 sentences.
       description: |
         Description of this output.
-
         Can be Markdown formatted text.

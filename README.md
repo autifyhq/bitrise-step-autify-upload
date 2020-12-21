@@ -2,7 +2,6 @@
 
 TOOD
 
-
 ## How to use this Step
 
 Can be run directly with the [bitrise CLI](https://github.com/bitrise-io/bitrise),
@@ -91,3 +90,8 @@ You can share your Step or step version with the [bitrise CLI](https://github.co
 1. Send the Pull Request, as described in the logs of `bitrise run share-this-step`
 
 That's all ;)
+
+## License
+
+bitrise-step-autify-upload © [Autify Engineers](https://github.com/autifyhq). Released under the [MIT License](LICENSE).<br/>
+Authored and maintained by [Autify Engineers](https://github.com/autifyhq) with help from [contributors](https://github.com/autifyhq/bitrise-step-autify-upload/graphs/contributors).
