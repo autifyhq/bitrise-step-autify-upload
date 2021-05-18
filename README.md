@@ -24,7 +24,7 @@ Step by step:
 
 An example `.bitrise.secrets.yml` file:
 
-```
+```bash
 envs:
 - A_SECRET_PARAM_ONE: the value for secret one
 - A_SECRET_PARAM_TWO: the value for secret two
@@ -49,7 +49,7 @@ If you want to use your step in your project's `bitrise.yml`:
 1. git push the step into it's repository
 1. reference it in your `bitrise.yml` with the `git::PUBLIC-GIT-CLONE-URL@BRANCH` step reference style:
 
-```
+```yaml
 - git::https://github.com/user/my-step.git@branch:
    title: My step
    inputs:
