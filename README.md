@@ -94,4 +94,4 @@ That's all ;)
 ## License
 
 bitrise-step-autify-upload © [Autify Engineers](https://github.com/autifyhq). Released under the [MIT License](LICENSE).<br/>
-Authored and maintained by [Autify Engineers](https://github.com/autifyhq) with help from [contributors](https://github.com/autifyhq/bitrise-step-autify-upload/graphs/contributors).
+Authored and maintained by [Autify Engineers](https://github.com/autifyhq) with help from contributors
