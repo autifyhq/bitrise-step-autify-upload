@@ -19,5 +19,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Markdown links check
+      - name: Markdown lint check
         uses: docker://avtodev/markdown-lint:v1 # fastest way
