@@ -21,3 +21,5 @@ jobs:
 
       - name: Markdown lint check
         uses: docker://avtodev/markdown-lint:v1 # fastest way
+        with:
+          args: './README.md'
