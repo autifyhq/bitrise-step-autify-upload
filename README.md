@@ -75,7 +75,6 @@ in the [bitrise CLI repository](https://github.com/bitrise-io/bitrise/blob/maste
     * You can find more example of alternative step referencing at: https://github.com/bitrise-io/bitrise/blob/master/_examples/tutorials/steps-and-workflows/bitrise.yml
 1. Once you're done just commit your changes & create a Pull Request
 
-
 ## Share your own Step
 
 You can share your Step or step version with the [bitrise CLI](https://github.com/bitrise-io/bitrise). If you use the `bitrise.yml` included in this repository, all you have to do is:
