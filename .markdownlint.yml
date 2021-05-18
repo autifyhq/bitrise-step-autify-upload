@@ -1,3 +1,6 @@
+# MD013/line-length - Line length
+MD013: false
+
 # MD033/no-inline-html - Inline HTML
 MD033:
   # Allowed elements
