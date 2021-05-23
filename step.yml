@@ -49,22 +49,21 @@ is_always_run: false
 is_skippable: false
 run_if: ""
 
-deps:
-  brew:
-  - name: git
-  - name: wget
-  apt_get:
-  - name: git
-  - name: wget
-
-
 toolkit:
   bash:
     entry_file: step.sh
 
 
 inputs:
-  - app_dir_path:
+  - app_dir_path: $APP_DIR_PATH
+    opts:
+      title: 
+      summary:
+      description: |
+        Description of this input.
+        Can be Markdown formatted text.
+      is_required: true
+  - project_id: $PROJECT_ID
     opts:
       title:
       summary:
@@ -72,7 +71,7 @@ inputs:
         Description of this input.
         Can be Markdown formatted text.
       is_required: true
-  - upload_token:
+  - upload_token: $UPLOAD_TOKEN
     opts:
       title: Autify upload token
       summary:
