@@ -18,7 +18,6 @@ source_code_url: https://github.com/autifyhq/bitrise-steps-autify-upload
 support_url: https://github.com/autifyhq/bitrise-steps-autify-upload/issues
 host_os_tags:
   - osx-10.10
-  - ubuntu-16.04
 
 # If this step should be available only for certain project types
 # just uncomment this `project_type_tags` section and include all the
@@ -55,29 +54,24 @@ toolkit:
 
 
 inputs:
-  - app_dir_path: $APP_DIR_PATH
+  - app_dir_path: $BITRISE_APP_DIR_PATH
     opts:
-      title: 
+      title: App directory path
       summary:
       description: |
-        Description of this input.
-        Can be Markdown formatted text.
       is_required: true
-  - project_id: $PROJECT_ID
+  - project_id:
     opts:
-      title:
+      title: Autify project id
       summary:
       description: |
-        Description of this input.
-        Can be Markdown formatted text.
       is_required: true
-  - upload_token: $UPLOAD_TOKEN
+  - upload_token:
     opts:
       title: Autify upload token
       summary:
       description: |
-        Description of this input.
-        Can be Markdown formatted text.
+        Please create token and set it.
       is_required: true
       is_sensitive: true
 
