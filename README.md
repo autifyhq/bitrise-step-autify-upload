@@ -26,9 +26,9 @@ An example `.bitrise.secrets.yml` file:
 
 ```
 envs:
-- UPLOAD_TOKEN: Autify Token
-- PROJECT_ID: Autify Project ID
-- BITRISE_APP_DIR_PATH: app directory path
+- upload_token: Autify Token
+- project_id: Autify Project ID
+- app_dir_path: app directory path
 ```
 
 ## How to create your own step
