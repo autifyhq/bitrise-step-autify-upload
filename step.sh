@@ -20,18 +20,18 @@ error() {
 }
 
 create_app_zip() {
-  cp -r "${BITRISE_APP_DIR_PATH}" "${WORKIND_DIR}"
+  cp -r "${app_dir_path}" "${WORKIND_DIR}"
 
   APP_ZIP_PATH="./${ZIP_NAME}"
-  APP_NAME=$(basename "${BITRISE_APP_DIR_PATH}")
+  APP_NAME=$(basename "${app_dir_path}")
   zip -r "${APP_ZIP_PATH}" "${APP_NAME}"
 }
 
 main() {
   create_app_zip
 
-  TOKEN_HEADER="Authorization: Bearer ${UPLOAD_TOKEN}"
-  API_UPLOAD_ADDRESS="${API_BASE_ADDRESS}/projects/${PROJECT_ID}/builds"
+  TOKEN_HEADER="Authorization: Bearer ${upload_token}"
+  API_UPLOAD_ADDRESS="${API_BASE_ADDRESS}/projects/${project_id}/builds"
   RESPONSE=$(curl -X POST "${API_UPLOAD_ADDRESS}" -H "accept: application/json" -H "${TOKEN_HEADER}" -H "Content-Type: multipart/form-data" -F "file=@${APP_ZIP_PATH};type=application/zip" -w '\n%{http_code}' -s)
 
   # http status
@@ -49,4 +49,11 @@ main() {
   success "$BODY"
 }
 
+# parameters
+info "parameters:"
+info "* upload_token: ${upload_token}"
+info "* project_id: ${project_id}"
+info "* app_dir_path: ${app_dir_path}"
+
+# run
 main "$@"

@@ -40,8 +40,9 @@ workflows:
           file if you would not specify another value.
         run_if: true
         inputs:
-        - project_id: "$PROJECT_ID"
-        - upload_token: "$UPLOAD_TOKEN"
+        - project_id: "$project_id"
+        - upload_token: "$upload_token"
+        - app_dir_path: "$app_dir_path"
     - script:
         title: Step Result
         is_always_run: true
