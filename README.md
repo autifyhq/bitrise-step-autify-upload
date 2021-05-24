@@ -1,6 +1,6 @@
 # Autify Upload
 
-TOOD
+Upload the app file for iOS to Autify.
 
 ## How to use this Step
 
@@ -26,8 +26,9 @@ An example `.bitrise.secrets.yml` file:
 
 ```
 envs:
-- A_SECRET_PARAM_ONE: the value for secret one
-- A_SECRET_PARAM_TWO: the value for secret two
+- UPLOAD_TOKEN: Autify Token
+- PROJECT_ID: Autify Project ID
+- BITRISE_APP_DIR_PATH: app directory path
 ```
 
 ## How to create your own step
