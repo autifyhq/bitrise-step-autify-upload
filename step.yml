@@ -82,5 +82,3 @@ outputs:
       title: "Autify Upload Step Result JSON"
       summary: Summary. No more than 2-3 sentences.
       description: |
-        Description of this output.
-        Can be Markdown formatted text.
