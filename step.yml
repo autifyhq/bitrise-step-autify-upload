@@ -68,7 +68,7 @@ inputs:
       is_required: true
   - upload_token:
     opts:
-      title: Autify upload token
+      title: Autify Personal Access Token
       summary:
       description: |
         Please create a personal token and set it.
