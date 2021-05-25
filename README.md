@@ -26,7 +26,7 @@ An example `.bitrise.secrets.yml` file:
 
 ```bash
 envs:
-- upload_token: Autify Token
+- upload_token: Autify Personal Access Token
 - project_id: Autify Project ID
 - app_dir_path: app directory path
 ```
