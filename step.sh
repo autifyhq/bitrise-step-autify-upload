@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Upload to Autify
-set -eux
+set -e
 
 readonly API_BASE_ADDRESS="https://mobile-app.autify.com/api/v1"
 readonly WORKIND_DIR="./"
