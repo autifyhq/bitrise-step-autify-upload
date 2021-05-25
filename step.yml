@@ -71,7 +71,7 @@ inputs:
       title: Autify upload token
       summary:
       description: |
-        Please create token and set it.
+        Please create a personal token and set it.
       is_required: true
       is_sensitive: true
 
