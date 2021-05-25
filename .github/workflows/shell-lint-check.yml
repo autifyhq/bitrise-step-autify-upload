@@ -1,4 +1,4 @@
-name: markdown-link-check
+name: shell-lint-check
 
 # Controls when the action will run. 
 on:
@@ -13,10 +13,14 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  markdown-link-check:
+  shell-lint-check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
-      - name: Markdown links check
-        uses: ruzickap/action-my-markdown-link-checker@v1
+      - name: Shell lint check
+        uses: luizm/action-sh-checker@v0.1.12
+        env:
+          SHFMT_OPTS: -i 2
+        with:
+          sh_checker_comment: false
