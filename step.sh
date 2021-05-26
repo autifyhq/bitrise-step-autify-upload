@@ -8,15 +8,15 @@ readonly WORKIND_DIR="./"
 readonly ZIP_NAME="upload.zip"
 
 info() {
-  printf "$(tput setaf 7)- %s$(tput sgr0)\n" "$@"
+  echo -e "$1"
 }
 
 success() {
-  printf "$(tput setaf 64)✓ %s$(tput sgr0)\n" "$@"
+  echo -e "\033[00;32m $1 \033[0m"
 }
 
 error() {
-  printf "$(tput setaf 1)x %s$(tput sgr0)\n" "$@"
+  echo -e "\033[00;31m $1 \033[0m"
 }
 
 create_app_zip() {
@@ -24,6 +24,8 @@ create_app_zip() {
 
   APP_ZIP_PATH="./${ZIP_NAME}"
   APP_NAME=$(basename "${app_dir_path}")
+
+  info "create zip file"
   zip -r "${APP_ZIP_PATH}" "${APP_NAME}"
 }
 
