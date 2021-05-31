@@ -7,12 +7,15 @@
 # - Bitrise docs: http://devcenter.bitrise.io/
 # - Bitrise CLI guides: http://devcenter.bitrise.io/bitrise-cli/
 
-title: |-
+title: |
   Autify Upload
 summary: |
   Uploads your build to Autify.
-description: |
-  TOOD
+description: |-
+  Uploads you build `.app` to [Autify](https://autify.com/mobile) using Autify's API. You can upload the iOS build with the Step.
+
+  This Step, however, does NOT generate your build: to create a `.app` file, you need the right step. For example, `Xcode build for simulator` Step or any other Step can generate a build. Add task URL
+  
 website: https://github.com/autifyhq/bitrise-steps-autify-upload
 source_code_url: https://github.com/autifyhq/bitrise-steps-autify-upload
 support_url: https://github.com/autifyhq/bitrise-steps-autify-upload/issues
@@ -58,20 +61,31 @@ inputs:
     opts:
       title: App directory path
       summary:
-      description: |
+      description: |-
+        A `.app` path.
+
+        This path is generated in the previous step. For example:
+
+        - The `Xcode build for simulator` Step generate a app directory as `$BITRISE_APP_DIR_PATH`
+
       is_required: true
   - project_id:
     opts:
       title: Autify project id
       summary:
-      description: |
+      description: |-
+        The Project ID can be found in the Auitify URL. For example:
+        
+        - `autify.com/projects/<Project ID>`
+
       is_required: true
   - upload_token:
     opts:
       title: Autify Personal Access Token
       summary:
-      description: |
-        Please create a personal token and set it.
+      description: |-
+        You can generate a Personal Access Token from Autify's Settings page. Note that this value is associated with a specific user, as the name implies.
+
       is_required: true
       is_sensitive: true
 
@@ -80,5 +94,6 @@ outputs:
   - AUTIFY_UPLOAD_STEP_RESULT_JSON:
     opts:
       title: "Autify Upload Step Result JSON"
-      summary: Summary. No more than 2-3 sentences.
-      description: |
+      summary: Response when uploading the build
+      description: |-
+        This is the response to the API used to upload the build
