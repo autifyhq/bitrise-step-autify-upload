@@ -20,3 +20,11 @@ jobs:
 
       - name: YAML lint check
         uses: ibiqlik/action-yamllint@v3
+        with:
+          file_or_dir: step.yml
+          config_data: |
+            extends: default
+            rules:
+              line-length:
+                max: 80
+                level: warning

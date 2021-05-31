@@ -6,7 +6,7 @@
 # - Bitrise.yml format spec: https://github.com/bitrise-io/bitrise/blob/master/_docs/bitrise-yml-format-spec.md
 # - Bitrise docs: http://devcenter.bitrise.io/
 # - Bitrise CLI guides: http://devcenter.bitrise.io/bitrise-cli/
-
+---
 title: |
   Autify Upload
 summary: |
@@ -15,7 +15,7 @@ description: |-
   Uploads you build `.app` to [Autify](https://autify.com/mobile) using Autify's API. You can upload the iOS build with the Step.
 
   This Step, however, does NOT generate your build: to create a `.app` file, you need the right step. For example, `Xcode build for simulator` Step or any other Step can generate a build. Add task URL
-  
+
 website: https://github.com/autifyhq/bitrise-steps-autify-upload
 source_code_url: https://github.com/autifyhq/bitrise-steps-autify-upload
 support_url: https://github.com/autifyhq/bitrise-steps-autify-upload/issues
@@ -75,7 +75,7 @@ inputs:
       summary:
       description: |-
         The Project ID can be found in the Auitify URL. For example:
-        
+
         - `autify.com/projects/<Project ID>`
 
       is_required: true
