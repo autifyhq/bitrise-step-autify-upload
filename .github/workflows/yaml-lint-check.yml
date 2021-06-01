@@ -1,0 +1,30 @@
+name: yaml-lint-check
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  yaml-lint-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: YAML lint check
+        uses: ibiqlik/action-yamllint@v3
+        with:
+          file_or_dir: step.yml
+          config_data: |
+            extends: default
+            rules:
+              line-length:
+                max: 80
+                level: warning
