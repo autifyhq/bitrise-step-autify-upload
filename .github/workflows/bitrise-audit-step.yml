@@ -19,11 +19,11 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Install BitriseCLI
-      - run: |
+        run: |
           mkdir -p $GITHUB_WORKSPACE/bin
           curl -fL https://github.com/bitrise-io/bitrise/releases/download/1.47.0/bitrise-$(uname -s)-$(uname -m) > $GITHUB_WORKSPACE/bin/bitrise
           chmod +x $GITHUB_WORKSPACE/bin/bitrise
 
       - name: Audit step.yml
-      - run: |
+        run: |
           bitrise run audit-this-step
