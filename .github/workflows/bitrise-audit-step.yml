@@ -26,4 +26,4 @@ jobs:
 
       - name: Audit step.yml
         run: |
-          bitrise run audit-this-step
+          $GITHUB_WORKSPACE/bin/bitrise run audit-this-step

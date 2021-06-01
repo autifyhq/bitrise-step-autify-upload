@@ -26,4 +26,4 @@ jobs:
 
       - name: Test step
         run: |
-          bitrise run test
+          $GITHUB_WORKSPACE/bin/bitrise run test
