@@ -95,5 +95,3 @@ That's all ;)
 
 bitrise-step-autify-upload © [Autify Engineers](https://github.com/autifyhq). Released under the [MIT License](LICENSE).<br/>
 Authored and maintained by [Autify Engineers](https://github.com/autifyhq) with help from contributors
-
-<a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fautifyhq%2Fbitrise-step-autify-upload?ref=badge_large" alt="FOSSA Status"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fautifyhq%2Fbitrise-step-autify-upload.svg?type=large"/></a>
