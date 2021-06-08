@@ -1,5 +1,7 @@
 # Autify Upload
 
+[![bitrise-test-check](https://github.com/autifyhq/bitrise-step-autify-upload/actions/workflows/bitrise-test-step.yml/badge.svg)](https://github.com/autifyhq/bitrise-step-autify-upload/actions/workflows/bitrise-test-step.yml) [![bitrise-audit-check](https://github.com/autifyhq/bitrise-step-autify-upload/actions/workflows/bitrise-audit-step.yml/badge.svg)](https://github.com/autifyhq/bitrise-step-autify-upload/actions/workflows/bitrise-audit-step.yml)
+
 Upload the app file for iOS to Autify.
 
 ## How to use this Step
