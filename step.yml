@@ -16,9 +16,9 @@ description: |-
 
   This Step, however, does NOT generate your build: to create a `.app` file, you need the right step. For example, `Xcode build for simulator` Step or any other Step can generate a build. Add task URL
 
-website: https://github.com/autifyhq/bitrise-steps-autify-upload
-source_code_url: https://github.com/autifyhq/bitrise-steps-autify-upload
-support_url: https://github.com/autifyhq/bitrise-steps-autify-upload/issues
+website: https://github.com/autifyhq/bitrise-step-autify-upload
+source_code_url: https://github.com/autifyhq/bitrise-step-autify-upload
+support_url: https://github.com/autifyhq/bitrise-step-autify-upload/issues
 host_os_tags:
   - osx-10.10
 
