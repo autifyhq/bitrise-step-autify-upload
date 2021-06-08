@@ -4,7 +4,9 @@
 [bitrise-audit-check badge]: https://github.com/autifyhq/bitrise-step-autify-upload/actions/workflows/bitrise-audit-step.yml/badge.svg
 [bitrise-audit-check url]:   https://github.com/autifyhq/bitrise-step-autify-upload/actions/workflows/bitrise-audit-step.yml
 
-# Autify Upload &middot; [![bitrise-test-check][bitrise-test-check badge]][bitrise-test-check url] [![bitrise-audit-check][bitrise-audit-check badge]][bitrise-audit-check url]
+# Autify Upload
+
+[![bitrise-test-check][bitrise-test-check badge]][bitrise-test-check url] [![bitrise-audit-check][bitrise-audit-check badge]][bitrise-audit-check url]
 
 Upload the app file for iOS to Autify.
 
