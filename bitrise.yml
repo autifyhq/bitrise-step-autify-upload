@@ -15,11 +15,11 @@ workflows:
   test:
     steps:
     - script:
+        title: Setup
         inputs:
         - content: |
             #!/bin/bash
-            echo "Just an example 'secrets' print."
-            echo "The value of 'A_SECRET_PARAM' is: $A_SECRET_PARAM"
+            rm -rf ./_tmp
     - change-workdir:
         title: Switch working dir to test / _tmp dir
         description: |-
@@ -42,7 +42,7 @@ workflows:
         inputs:
         - project_id: "$project_id"
         - upload_token: "$upload_token"
-        - app_dir_path: "$app_dir_path"
+        - app_dir_path: ../fixture/bitrise_test.app
     - script:
         title: Step Result
         is_always_run: true

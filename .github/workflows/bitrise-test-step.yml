@@ -25,5 +25,8 @@ jobs:
           chmod +x $GITHUB_WORKSPACE/bin/bitrise
 
       - name: Test step
+        env:
+          project_id: ${{ secrets.PROJECT_ID }}
+          upload_token: ${{ secrets.UPLOAD_TOKEN }}
         run: |
           $GITHUB_WORKSPACE/bin/bitrise run test
