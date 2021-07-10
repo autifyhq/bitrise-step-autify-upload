@@ -18,4 +18,5 @@ jobs:
 
       - name: Call Bitrise API
         run: |
-          curl -X POST "https://api.bitrise.io/v0.1/apps/${BITRISE_SLUG_ID}/builds" -H "accept: application/json" -H "Authorization: $BITRISE_API_TOKEN" -H "Content-Type: application/json" -d "{ \"build_params\": { \"workflow_id\": \"${BITRISE_WORKFLOW_ID}\" }, \"hook_info\": { \"type\": \"bitrise\" }}"
+          COMMIT_HASH=`git rev-parse HEAD`
+          curl -X POST "https://api.bitrise.io/v0.1/apps/${BITRISE_SLUG_ID}/builds" -H "accept: application/json" -H "Authorization: $BITRISE_API_TOKEN" -H "Content-Type: application/json" -d -d "{ \"build_params\": { \"commit_message\": \"${COMMIT_HASH}\", \"workflow_id\": \"${BITRISE_WORKFLOW_ID}\" }, \"hook_info\": { \"type\": \"bitrise\" }}"
