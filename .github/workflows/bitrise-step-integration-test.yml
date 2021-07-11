@@ -1,0 +1,22 @@
+name: bitrise-step-integration-test
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  bitrise-test-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Call Bitrise API
+        run: |
+          COMMIT_HASH=`git rev-parse HEAD`
+          curl -X POST "https://api.bitrise.io/v0.1/apps/${BITRISE_SLUG_ID}/builds" -H "accept: application/json" -H "Authorization: $BITRISE_API_TOKEN" -H "Content-Type: application/json" -d -d "{ \"build_params\": { \"commit_message\": \"${COMMIT_HASH}\", \"workflow_id\": \"${BITRISE_WORKFLOW_ID}\" }, \"hook_info\": { \"type\": \"bitrise\" }}"
