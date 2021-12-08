@@ -3,59 +3,19 @@
 # Upload to Autify
 set -e
 
+
+export AUTIFY_UPLOAD_TOKEN="$upload_token"
+export AUTIFY_PROJECT_ID="$project_id"
+export AUTIFY_APP_DIR_PATH="$app_dir_path"
+export AUTIFY_MOBILE_SCRIPT="https://raw.githubusercontent.com/autifyhq/autify-for-mobile-cli/main/autify_mobile_cli.sh"
+export AUTIFY_MOBILE_SCRIPT_NAME="autify_mobile_cli.sh"
+
 readonly API_BASE_ADDRESS="https://mobile-app.autify.com/api/v1"
 readonly WORKIND_DIR="./"
 readonly ZIP_NAME="upload.zip"
 
-info() {
-  echo -e "$1"
-}
+# download script
+curl -L -o "$WORKIND_DIR/$AUTIFY_MOBILE_SCRIPT_NAME" $AUTIFY_MOBILE_SCRIPT
+chmod 777 "$WORKIND_DIR/$AUTIFY_MOBILE_SCRIPT_NAME"
 
-success() {
-  echo -e "\033[00;32m $1 \033[0m"
-}
-
-error() {
-  echo -e "\033[00;31m $1 \033[0m"
-}
-
-create_app_zip() {
-  cp -r "${app_dir_path}" "${WORKIND_DIR}"
-
-  APP_ZIP_PATH="./${ZIP_NAME}"
-  APP_NAME=$(basename "${app_dir_path}")
-
-  info "create zip file"
-  zip -r "${APP_ZIP_PATH}" "${APP_NAME}"
-}
-
-main() {
-  create_app_zip
-
-  TOKEN_HEADER="Authorization: Bearer ${upload_token}"
-  API_UPLOAD_ADDRESS="${API_BASE_ADDRESS}/projects/${project_id}/builds"
-  RESPONSE=$(curl -X POST "${API_UPLOAD_ADDRESS}" -H "accept: application/json" -H "${TOKEN_HEADER}" -H "Content-Type: multipart/form-data" -F "file=@${APP_ZIP_PATH};type=application/zip" -w '\n%{http_code}' -s)
-
-  # http status
-  HTTP_STATUS=$(echo "$RESPONSE" | tail -n 1)
-  # body
-  BODY=$(echo "$RESPONSE" | sed '$d')
-  # set env
-  envman add --key "AUTIFY_UPLOAD_STEP_RESULT_JSON" --value "$BODY"
-
-  if [[ "$HTTP_STATUS" != "201" ]]; then
-    error "$BODY"
-    exit 1
-  fi
-
-  success "$BODY"
-}
-
-# parameters
-info "parameters:"
-info "* upload_token: ${upload_token}"
-info "* project_id: ${project_id}"
-info "* app_dir_path: ${app_dir_path}"
-
-# run
-main "$@"
+exec "$WORKIND_DIR/$AUTIFY_MOBILE_SCRIPT_NAME"
