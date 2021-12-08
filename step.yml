@@ -12,9 +12,9 @@ title: |
 summary: |
   Uploads your build to Autify.
 description: |-
-  Uploads you build `.app` to [Autify](https://autify.com/mobile) using Autify's API. You can upload the iOS build with the Step.
+  Uploads you build `.app` to [Autify](https://autify.com/mobile) using [Autify's API](https://mobile-app.autify.com/api/docs/index.html). You can upload the iOS build with the Step.
 
-  This Step, however, does NOT generate your build: to create a `.app` file, you need the right step. For example, `Xcode build for simulator` Step or any other Step can generate a build. Add task URL
+  This Step, however, does NOT generate your build: to create a `.app` file, you need the right step. For example, `Xcode build for simulator` Step or any other Step can generate a build
 
 website: https://github.com/autifyhq/bitrise-step-autify-upload
 source_code_url: https://github.com/autifyhq/bitrise-step-autify-upload
