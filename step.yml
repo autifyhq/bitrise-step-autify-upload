@@ -19,8 +19,6 @@ description: |-
 website: https://github.com/autifyhq/bitrise-step-autify-upload
 source_code_url: https://github.com/autifyhq/bitrise-step-autify-upload
 support_url: https://github.com/autifyhq/bitrise-step-autify-upload/issues
-host_os_tags:
-  - osx-10.10
 
 # If this step should be available only for certain project types
 # just uncomment this `project_type_tags` section and include all the
