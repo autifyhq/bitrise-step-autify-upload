@@ -84,6 +84,15 @@ inputs:
 
       is_required: true
       is_sensitive: true
+  - mobile_script_branch_name:
+    opts:
+      title: Script Branch Name
+      summary:
+      description: |-
+
+      is_required: true
+      is_sensitive: true
+
 
 
 outputs:
