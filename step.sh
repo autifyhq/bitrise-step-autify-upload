@@ -18,6 +18,10 @@ readonly API_BASE_ADDRESS="https://mobile-app.autify.com/api/v1"
 readonly WORKIND_DIR="./"
 readonly ZIP_NAME="upload.zip"
 
+# for develop
+echo "develop parameters:"
+echo "* mobile_script_branch_name: ${AUTIFY_MOBILE_SCRIPT_BRANCH}"
+
 # download script
 curl -L -o "$WORKIND_DIR/$AUTIFY_MOBILE_SCRIPT_NAME" $AUTIFY_MOBILE_SCRIPT
 chmod 777 "$WORKIND_DIR/$AUTIFY_MOBILE_SCRIPT_NAME"
