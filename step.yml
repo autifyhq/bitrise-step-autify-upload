@@ -91,7 +91,6 @@ inputs:
       description: |-
 
       is_required: true
-      is_sensitive: true
 
 
 
