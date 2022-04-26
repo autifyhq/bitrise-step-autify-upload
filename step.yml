@@ -72,7 +72,7 @@ inputs:
       description: |-
         The Project ID can be found in the Auitify URL. For example:
 
-        - `autify.com/projects/<Project ID>`
+        - `autify.com/projects/{Project ID}`
 
       is_required: true
   - upload_token:
