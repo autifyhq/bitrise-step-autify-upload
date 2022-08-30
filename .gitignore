@@ -1,2 +1,5 @@
 .bitrise*
-.gows.user.yml
+.idea
+.vscode
+README.md.backup
+_tmp/
