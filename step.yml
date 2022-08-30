@@ -6,16 +6,13 @@
 # - Bitrise.yml format spec: https://github.com/bitrise-io/bitrise/blob/master/_docs/bitrise-yml-format-spec.md
 # - Bitrise docs: http://devcenter.bitrise.io/
 # - Bitrise CLI guides: http://devcenter.bitrise.io/bitrise-cli/
----
-title: |
+
+title: |-
   Autify Upload
 summary: |
-  Uploads your build to Autify.
-description: |-
-  Uploads you build `.app` to [Autify](https://autify.com/mobile) using [Autify's API](https://mobile-app.autify.com/api/docs/index.html). You can upload the iOS build with the Step.
-
-  This Step, however, does NOT generate your build: to create a `.app` file, you need the right step. For example, `Xcode build for simulator` Step or any other Step can generate a build
-
+  TODO
+description: |
+  TODO
 website: https://github.com/autifyhq/bitrise-step-autify-upload
 source_code_url: https://github.com/autifyhq/bitrise-step-autify-upload
 support_url: https://github.com/autifyhq/bitrise-step-autify-upload/issues
@@ -29,13 +26,15 @@ support_url: https://github.com/autifyhq/bitrise-step-autify-upload/issues
 # You can find more information about project type tags in the Step Development Guideline:
 # https://github.com/bitrise-io/bitrise/blob/master/_docs/step-development-guideline.md
 #
-project_type_tags:
-  - ios
-  - xamarin
-  - react-native
-  - cordova
-  - ionic
-  - flutter
+# project_type_tags:
+#   - ios
+#   - macos
+#   - android
+#   - xamarin
+#   - react-native
+#   - cordova
+#   - ionic
+#   - flutter
 
 # Type tags are used for categorizing steps, for easier step discovery in Step Libraries.
 # You can find more information about type tags in the Step Development Guideline:
@@ -43,9 +42,24 @@ project_type_tags:
 type_tags:
   - test
 
-is_always_run: false
-is_skippable: false
-run_if: ""
+# These properties define whether a Step is run in a given Workflow or not.
+# You can find more information about this in the documentation here:
+# https://devcenter.bitrise.io/en/steps-and-workflows/developing-your-own-bitrise-step/developing-a-new-step.html#setting-conditions-for-running-the-step
+#
+# is_always_run: false
+# is_skippable: false
+# run_if: ""
+
+# Use the `deps` property to declare dependencies that you can fetch from an OS dependency manager.
+# You can find more information about this in the documentation here:
+# https://devcenter.bitrise.io/en/steps-and-workflows/developing-your-own-bitrise-step/developing-a-new-step.html#submodules-and-step-dependencies
+#
+# deps:
+#   brew:
+#   - name: cmake
+#   apt_get:
+#   - name: cmake
+
 
 toolkit:
   bash:
@@ -53,43 +67,24 @@ toolkit:
 
 
 inputs:
-  - app_dir_path: $BITRISE_APP_DIR_PATH
+  - example_step_input: Default Value - you can leave this empty if you want to
     opts:
-      title: App directory path
-      summary:
-      description: |-
-        A `.app` path.
+      title: "Example Step Input"
+      summary: Summary. No more than 2-3 sentences.
+      description: |
+        Description of this input.
 
-        This path is generated in the previous step. For example:
-
-        - The `Xcode build for simulator` Step generate a app directory as `$BITRISE_APP_DIR_PATH`
-
+        Can be Markdown formatted text.
+      is_expand: true
       is_required: true
-  - project_id:
-    opts:
-      title: Autify project id
-      summary:
-      description: |-
-        The Project ID can be found in the Auitify URL. For example:
-
-        - `autify.com/projects/{Project ID}`
-
-      is_required: true
-  - upload_token:
-    opts:
-      title: Autify Personal Access Token
-      summary:
-      description: |-
-        You can generate a Personal Access Token from Autify's Settings page. Note that this value is associated with a specific user, as the name implies.
-
-      is_required: true
-      is_sensitive: true
-
+      value_options: []
 
 outputs:
-  - AUTIFY_UPLOAD_STEP_RESULT_JSON:
+  - EXAMPLE_STEP_OUTPUT:
     opts:
-      title: "Autify Upload Step Result JSON"
-      summary: Response when uploading the build
-      description: |-
-        This is the response to the API used to upload the build
+      title: "Example Step Output"
+      summary: Summary. No more than 2-3 sentences.
+      description: |
+        Description of this output.
+
+        Can be Markdown formatted text.

@@ -1,22 +1,22 @@
 #!/bin/bash
+set -ex
+
+echo "This is the value specified for the input 'example_step_input': ${example_step_input}"
+
 #
-# Upload to Autify
-set -e
+# --- Export Environment Variables for other Steps:
+# You can export Environment Variables for other Steps with
+#  envman, which is automatically installed by `bitrise setup`.
+# A very simple example:
+envman add --key EXAMPLE_STEP_OUTPUT --value 'the value you want to share'
+# Envman can handle piped inputs, which is useful if the text you want to
+# share is complex and you don't want to deal with proper bash escaping:
+#  cat file_with_complex_input | envman add --KEY EXAMPLE_STEP_OUTPUT
+# You can find more usage examples on envman's GitHub page
+#  at: https://github.com/bitrise-io/envman
 
-# shellcheck disable=SC2154
-export AUTIFY_UPLOAD_TOKEN="$upload_token"
-# shellcheck disable=SC2154
-export AUTIFY_PROJECT_ID="$project_id"
-# shellcheck disable=SC2154
-export AUTIFY_APP_DIR_PATH="$app_dir_path"
-
-export AUTIFY_MOBILE_SCRIPT="https://raw.githubusercontent.com/autifyhq/autify-for-mobile-cli/main/autify_mobile_cli.sh"
-export AUTIFY_MOBILE_SCRIPT_NAME="autify_mobile_cli.sh"
-
-readonly WORKIND_DIR="./"
-
-# download script
-curl -L -o "$WORKIND_DIR/$AUTIFY_MOBILE_SCRIPT_NAME" $AUTIFY_MOBILE_SCRIPT
-chmod 777 "$WORKIND_DIR/$AUTIFY_MOBILE_SCRIPT_NAME"
-
-exec "$WORKIND_DIR/$AUTIFY_MOBILE_SCRIPT_NAME"
+#
+# --- Exit codes:
+# The exit code of your Step is very important. If you return
+#  with a 0 exit code `bitrise` will register your Step as "successful".
+# Any non zero exit code will be registered as "failed" by `bitrise`.
