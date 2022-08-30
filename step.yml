@@ -10,9 +10,14 @@
 title: |-
   Autify Upload
 summary: |
-  TODO
+  Upload a build file to Autify for Mobile.
 description: |
-  TODO
+  [Autify for Mobile](https://autify.com/mobile) is a test automation platform for your native app.
+  This step allows you to upload your app built in the previous steps to Autify.
+
+  You need to build your app first by `Android Build`, `Xcode build for simulator`, etc.
+  and refer the target build path (*.apk or *.app) at `Build path to test` input.
+
 website: https://github.com/autifyhq/bitrise-step-autify-upload
 source_code_url: https://github.com/autifyhq/bitrise-step-autify-upload
 support_url: https://github.com/autifyhq/bitrise-step-autify-upload/issues
@@ -26,15 +31,14 @@ support_url: https://github.com/autifyhq/bitrise-step-autify-upload/issues
 # You can find more information about project type tags in the Step Development Guideline:
 # https://github.com/bitrise-io/bitrise/blob/master/_docs/step-development-guideline.md
 #
-# project_type_tags:
-#   - ios
-#   - macos
-#   - android
-#   - xamarin
-#   - react-native
-#   - cordova
-#   - ionic
-#   - flutter
+project_type_tags:
+  - ios
+  - android
+  - xamarin
+  - react-native
+  - cordova
+  - ionic
+  - flutter
 
 # Type tags are used for categorizing steps, for easier step discovery in Step Libraries.
 # You can find more information about type tags in the Step Development Guideline:
@@ -60,31 +64,41 @@ type_tags:
 #   apt_get:
 #   - name: cmake
 
-
 toolkit:
   bash:
     entry_file: step.sh
 
-
 inputs:
-  - example_step_input: Default Value - you can leave this empty if you want to
+  - access_token: $AUTIFY_MOBILE_ACCESS_TOKEN
     opts:
-      title: "Example Step Input"
-      summary: Summary. No more than 2-3 sentences.
-      description: |
-        Description of this input.
-
-        Can be Markdown formatted text.
+      title: Access token of Autify for Mobile
+      summary: Personal Access Token of Autify for Mobile
       is_expand: true
       is_required: true
-      value_options: []
+      is_sensitive: true
+  - workspace_id:
+    opts:
+      title: Workspace ID to upload
+      summary: Your workspace ID of Autify for Mobile to upload the build
+      is_expand: true
+      is_required: true
+  - build_path:
+    opts:
+      title: Build path to upload
+      summary: |-
+        The file location of your build file i.e. /path/to/ios.app or /path/to/android.apk.
+        Typically, it's `$BITRISE_APP_DIR_PATH` for `Xcode build for simulator` step or `$BITRISE_APK_PATH` for `Android build` step.
+      is_expand: true
+      is_required: true
+  - autify_path: autify
+    opts:
+      title: A path to Autify CLI
+      is_expand: true
 
 outputs:
-  - EXAMPLE_STEP_OUTPUT:
+  - AUTIFY_BUILD_ID:
     opts:
-      title: "Example Step Output"
-      summary: Summary. No more than 2-3 sentences.
-      description: |
-        Description of this output.
-
-        Can be Markdown formatted text.
+      title: "Uploaded build id on Autify for Mobile"
+  - AUTIFY_UPLOAD_EXIT_CODE:
+    opts:
+      title: "Exit code of the step"

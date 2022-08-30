@@ -1,6 +1,6 @@
 # Autify Upload
 
-TODO
+Upload a build file to Autify for Mobile.
 
 
 ## How to use this Step
