@@ -33,6 +33,7 @@ workflows:
     - path::./:
         title: mobile build upload --workspace-id AAA ./android.apk
         inputs:
+        - access_token: ${AUTIFY_ACCESS_TOKEN}
         - workspace_id: AAA
         - build_path: ./android.apk
         - autify_path: ./node_modules/.bin/autify-with-proxy
@@ -47,6 +48,7 @@ workflows:
     - path::./:
         title: mobile build upload --workspace-id AAA ./ios.app
         inputs:
+        - access_token: ${AUTIFY_ACCESS_TOKEN}
         - workspace_id: AAA
         - build_path: ./ios.app
         - autify_path: ./node_modules/.bin/autify-with-proxy
@@ -61,6 +63,7 @@ workflows:
     - path::./:
         title: failed
         inputs:
+        - access_token: ${AUTIFY_ACCESS_TOKEN}
         - workspace_id: AAA
         - build_path: ./android.apk
         - autify_path: "false"
