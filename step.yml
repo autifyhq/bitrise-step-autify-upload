@@ -93,6 +93,10 @@ inputs:
     opts:
       title: A path to Autify CLI
       is_expand: true
+  - autify_cli_installer_url: https://autify-cli-assets.s3.amazonaws.com/autify-cli/channels/stable/install-cicd.bash
+    opts:
+      title: Autify CLI installer URL
+      is_expand: true
 
 outputs:
   - AUTIFY_BUILD_ID:
