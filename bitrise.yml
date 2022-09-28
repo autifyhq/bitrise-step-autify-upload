@@ -3,6 +3,9 @@ default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
 
 app:
   envs:
+  - AUTIFY_ACCESS_TOKEN: token
+  - AUTIFY_CLI_INTEGRATION_TEST_INSTALL: 1
+  - AUTIFY_TEST_WAIT_INTERVAL_SECOND: 0
   # If you want to share this step into a StepLib
   - BITRISE_STEP_ID: autify-upload
   - BITRISE_STEP_VERSION: "1.0.0"
@@ -22,13 +25,15 @@ workflows:
         inputs:
         - path: ./_tmp
         - is_create_path: true
+
     - script:
         inputs:
         - content: |
             #!/bin/bash
             set -ex
-            npm i @autifyhq/autify-cli-integration-test
-            npx autify-mobile-generate-fake-app
+            export AUTIFY_CLI_INSTALL_USE_CACHE=1
+            curl -L "$AUTIFY_CLI_INSTALLER_URL" | bash -xe
+            ./autify/node_modules/.bin/autify-mobile-generate-fake-app
 
     - path::./:
         title: mobile build upload --workspace-id AAA ./android.apk
@@ -36,7 +41,8 @@ workflows:
         - access_token: ${AUTIFY_ACCESS_TOKEN}
         - workspace_id: AAA
         - build_path: ./android.apk
-        - autify_path: ./node_modules/.bin/autify-with-proxy
+        - autify_path: autify-with-proxy
+        - autify_cli_installer_url: ${AUTIFY_CLI_INSTALLER_URL}
     - script:
         inputs:
         - content: |
@@ -51,7 +57,8 @@ workflows:
         - access_token: ${AUTIFY_ACCESS_TOKEN}
         - workspace_id: AAA
         - build_path: ./ios.app
-        - autify_path: ./node_modules/.bin/autify-with-proxy
+        - autify_path: autify-with-proxy
+        - autify_cli_installer_url: ${AUTIFY_CLI_INSTALLER_URL}
     - script:
         inputs:
         - content: |
@@ -67,6 +74,7 @@ workflows:
         - workspace_id: AAA
         - build_path: ./android.apk
         - autify_path: "false"
+        - autify_cli_installer_url: ${AUTIFY_CLI_INSTALLER_URL}
         is_skippable: true
     - script:
         inputs:

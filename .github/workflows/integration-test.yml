@@ -1,0 +1,28 @@
+name: 'Integration test'
+
+on:
+  workflow_call:
+    inputs:
+      shell-installer-url:
+        type: string
+        required: true
+
+jobs:
+  macos:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          export AUTIFY_CLI_INSTALLER_URL=${{ inputs.shell-installer-url }}
+          brew install bitrise
+          bitrise run test
+
+  ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          export AUTIFY_CLI_INSTALLER_URL=${{ inputs.shell-installer-url }}
+          eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+          brew install bitrise
+          bitrise run test
