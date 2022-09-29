@@ -8,7 +8,6 @@ app:
   - AUTIFY_TEST_WAIT_INTERVAL_SECOND: 0
   # If you want to share this step into a StepLib
   - BITRISE_STEP_ID: autify-upload
-  - BITRISE_STEP_VERSION: "1.0.0"
   - BITRISE_STEP_GIT_CLONE_URL: https://github.com/autifyhq/bitrise-step-autify-upload.git
   - MY_STEPLIB_REPO_FORK_GIT_URL: https://github.com/autifyhq/bitrise-steplib
 
