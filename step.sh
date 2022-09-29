@@ -52,7 +52,7 @@ else
   exit 1
 fi
 
-export AUTIFY_CLI_USER_AGENT_SUFFIX="bitrise-step-autify-upload"
+export AUTIFY_CLI_USER_AGENT_SUFFIX="${AUTIFY_CLI_USER_AGENT_SUFFIX:=bitrise-step-autify-upload}"
 
 # Execute a command
 OUTPUT=./output.log
