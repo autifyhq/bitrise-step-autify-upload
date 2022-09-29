@@ -52,6 +52,8 @@ else
   exit 1
 fi
 
+export AUTIFY_CLI_USER_AGENT_SUFFIX="bitrise-step-autify-upload"
+
 # Execute a command
 OUTPUT=./output.log
 AUTIFY_MOBILE_ACCESS_TOKEN=${access_token} $AUTIFY mobile build upload "${ARGS[@]}" 2>&1 | tee $OUTPUT
